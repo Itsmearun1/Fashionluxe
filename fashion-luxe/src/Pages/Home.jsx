@@ -1,8 +1,15 @@
 import React from "react";
 import { Footer } from "../Components/Footer";
 import { Navbar } from "../Components/Navbar";
+import MySwiper from "../Components/Myswiper";
 import "./Home.css";
-import { Carousel } from "@trendyol-js/react-carousel";
+const sliderData=[{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwf6a3d80b/images/hi-res/2641_08082_mc_4497.jpg?sw=200&sh=288&sm=fit",title: "Wit & Whimsy Tees",price:3000},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwe053eab9/images/hi-res/2631_33565_mc_0768.jpg?sw=200&sh=288&sm=fit",title: "Right Fit Curvey Jean",price:4250.00},
+{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw5091b9e7/images/hi-res/2626_25647_mc_0047.jpg?sw=200&sh=288&sm=fit",title: "Yoga Pant",price:3000},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw67c53e30/images/hi-res/2641_02753_mc_0133.jpg?sw=200&sh=288&sm=fit",title: "Raindrops Shimmer Tree",price:3000},
+{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw2b6b1379/images/hi-res/2625_33764_mc_4436.jpg?sw=200&sh=288&sm=fit",title: "Suprema Capri",price:2150},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwe81fc52c/images/hi-res/2625_33480_mc_4298.jpg?sw=200&sh=288&sm=fit",title: "Suprema Pant",price:2550},
+{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw4b82243b/images/hi-res/2631_33551_mc_1687.jpg?sw=200&sh=288&sm=fit",title: "The Knit Jean",price:3850},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw917abe63/images/hi-res/2607_33749_mc_7654.jpg?sw=200&sh=288&sm=fit",title: "Suprema cami",price:2760},
+{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwd72d77ec/images/hi-res/2607_33779_mc_7772.jpg?sw=200&sh=288&sm=fit",title: "Suprema Tank",price:2000},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw5b69b01f/images/hi-res/2626_33477_mc_0679.jpg?sw=200&sh=288&sm=fit",title: "Knit Legging",price:2000}
+]
+
 export const Home = () => {
   const Categories = () => {
     return (
@@ -29,7 +36,7 @@ export const Home = () => {
     <div>
       <Navbar />
       <div className="homechild">
-        <span>
+        <span> <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwe12903b5/ca-images/plcc-images/platinum/ca-plcc-platinum-icon.svg?yocs=j_" alt="" />
           Save $20 on your first purchase of $25+ when you open and use a
           Catherines Platinum Credit Card!1,* Apply Now / Learn More
         </span>
@@ -94,6 +101,9 @@ export const Home = () => {
         <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwe12903b5/ca-images/plcc-images/platinum/ca-plcc-platinum-icon.svg?yocs=j_" alt="" />
         <h3>Don’t forget you can use your Catherines Platinum Credit Card on all FullBeauty purchases! LEARN MORE</h3>
        </div>
+       <h2><b>Trending This Week</b></h2>
+       <MySwiper sliderData={sliderData}/>
+       <hr />
       </div>
       <Footer />
     </div>

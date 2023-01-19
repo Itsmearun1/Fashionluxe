@@ -1,0 +1,27 @@
+.searchbar {
+    height: 25px;
+    width: 90%;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid lightgray;
+    margin: auto;
+}
+
+.searchbar input {
+    width: 90%;
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+
+}
+
+.searchbar button {
+    width: 10%;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}

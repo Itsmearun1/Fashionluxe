@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: 'Inter Tight', sans-serif;
 }
 .img-wrapper {
   width: 100%;
@@ -19,6 +20,11 @@
   padding: 20px;
   margin: 5px;
   font-size: 150%;
+  
+}
+.cat-div > div:hover{
+  background-color: #201355;
+  cursor: pointer;
 }
 .middle-img{
     display: flex;
@@ -41,9 +47,9 @@
     display: flex;
     justify-content: center;
     min-height: 100px;
-    background-color: #3a2a7c;
+    background-color: #6f6594;
     padding: 20px;
-    color: white;
+    color: #291c5e;
     margin: 10px;
 }
 
