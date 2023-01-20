@@ -1,6 +1,5 @@
 import React from "react";
 import { Footer } from "../Components/Footer";
-import { Navbar } from "../Components/Navbar";
 import MySwiper from "../Components/Myswiper";
 import "./Home.css";
 const sliderData=[{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwf6a3d80b/images/hi-res/2641_08082_mc_4497.jpg?sw=200&sh=288&sm=fit",title: "Wit & Whimsy Tees",price:3000},{img: "https://www.catherines.com/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dwe053eab9/images/hi-res/2631_33565_mc_0768.jpg?sw=200&sh=288&sm=fit",title: "Right Fit Curvey Jean",price:4250.00},
@@ -34,7 +33,6 @@ export const Home = () => {
   };
   return (
     <div>
-      <Navbar />
       <div className="homechild">
         <span> <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwe12903b5/ca-images/plcc-images/platinum/ca-plcc-platinum-icon.svg?yocs=j_" alt="" />
           Save $20 on your first purchase of $25+ when you open and use a

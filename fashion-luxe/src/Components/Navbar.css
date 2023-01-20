@@ -1,31 +1,31 @@
-.navbar-wrapper{
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: bold;
+
+.navbar-wrapper {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
 }
-.left{
- width: 30%;
+.left {
+  width: 30%;
 }
-.left img{
-    width: 100%;
+.left img {
+  width: 100%;
 }
-.center{
-width: 40%;
+.center {
+  width: 40%;
 }
-.right{
-width: 30%;
-display: flex;
-justify-content: space-evenly;
+.right {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
 }
-.right h5{
-    padding: 0px;
-    margin: 0%;
+.right h5 {
+  padding: 0px;
+  margin: 0%;
 }
-.right div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.right div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
