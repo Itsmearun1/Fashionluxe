@@ -1,0 +1,40 @@
+.product-page {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 20%;
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-grid {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-card {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .product-card img {
+    width: 100%;
+  }
+  
+  .product-name {
+    margin-top: 10px;
+  }
+  
+  .product-price {
+    color: #f44336;
+    margin-top: 5px;
+  }
+  
