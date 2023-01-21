@@ -11,6 +11,7 @@ const SingleProductPage = () => {
   console.log(productId);
   const addToCart = (product) => {
     let currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+    product["quantity"]=1;
     currentCart.push(product);
     localStorage.setItem("cart", JSON.stringify(currentCart));
   };
@@ -45,7 +46,7 @@ const SingleProductPage = () => {
       </div>
       <div className="product-info">
         <div className="product-name">{product.name}</div>
-        <div className="product-price">${product.price}</div>
+        <div className="product-price">₹{product.price}</div>
         <div className="product-color">
           <h3>Color</h3>
           {product.color}

@@ -34,10 +34,10 @@ export const Home = () => {
   return (
     <div>
       <div className="homechild">
-        <span> <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwe12903b5/ca-images/plcc-images/platinum/ca-plcc-platinum-icon.svg?yocs=j_" alt="" />
+        <div className="firstCard"> <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwe12903b5/ca-images/plcc-images/platinum/ca-plcc-platinum-icon.svg?yocs=j_" alt="" />
           Save $20 on your first purchase of $25+ when you open and use a
           Catherines Platinum Credit Card!1,* Apply Now / Learn More
-        </span>
+        </div>
         <ImageWrapper
           image="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.325/on/demandware.static/-/Sites-oss-Library/default/dwa190cb33/ca-images/homepage/2023/wk03/ca-0117-MainFeature_D.jpg?yocs=j_m_"
           name="first-img"

@@ -29,11 +29,11 @@ export const Dropdown = () => {
                     onMouseEnter={() => setDropdownOpen(index)}
                     onMouseLeave={() => setDropdownOpen(null)}
                 >
-                    <h5>{section.name}</h5>
+                    <h6>{section.name}</h6>
                     {dropdownOpen === index && (
                         <div className="dropdown-section-items" >
                             {section.items.map((item, i) => (
-                                <NavLink to="products" key={i}>
+                                <NavLink to="products" key={i} style={{ textDecoration: 'none' }}>
                                     <div onClick={() => console.log(`${item} clicked`)}>{item}</div>
                                 </NavLink>
                             ))}
