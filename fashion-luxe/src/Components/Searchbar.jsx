@@ -1,5 +1,4 @@
 import React from "react";
-import { Input, Icon, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
 import "./Searchbar.css"
 export const Searchbar = () => {

@@ -52,4 +52,15 @@
     color: #291c5e;
     margin: 10px;
 }
+.firstCard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #7b6cb8;
+  color: white;
+  width: 80%;
+}
 

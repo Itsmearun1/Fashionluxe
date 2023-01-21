@@ -10,13 +10,12 @@ import {
   FaShoppingBag,
 } from "react-icons/fa";
 import logo from "../images/logo.JPG";
-import { Home } from "../Pages/Home";
 export const Navbar = () => {
   return (
     <div className="whole-wrapper">
       <div className="navbar-wrapper">
         <div className="left">
-          <NavLink to="/">
+          <NavLink to="/" style={{ textDecoration: 'none'}}>
             <img src={logo} alt="" />
           </NavLink>
         </div>
@@ -33,11 +32,13 @@ export const Navbar = () => {
             <h5>CARD</h5>
           </div>
           <div>
+          <NavLink to="/signin" style={{ textDecoration: 'none' }}>
             <FaRegUserCircle />
             <h5>SIGN IN</h5>
+            </NavLink>
           </div>
           <div>
-            <NavLink to="/cart">
+            <NavLink to="/cart" style={{ textDecoration: 'none' }}>
               <FaShoppingBag />
               <h5>MY BAG</h5>
             </NavLink>

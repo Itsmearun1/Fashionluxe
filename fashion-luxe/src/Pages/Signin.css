@@ -1,0 +1,58 @@
+#upperimg{
+    width: 65%;
+    height: 100px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.maincontainer{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    padding: 60px;
+    margin-top: 20px;
+    justify-content: space-between;
+    line-height: 30px;
+}
+.maincontainer>div{
+    width: 48%;
+    text-align: center;
+
+}
+.maincontainer>div img{
+    width: 85%;
+}
+#signin>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+#signin>form input{
+    width: 60%;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#signin>form input:nth-of-type(3){
+    width: 30%;
+    height: 30px;
+    background-color: #2e2c2c;
+    color: #f2f2f2;
+    border: none;
+}
+#signup button{
+    height: 35px;
+    padding: 15px;
+    background-color: #2e2c2c;
+    color: #f2f2f2;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+#signin>form input:nth-of-type(3):hover,button:hover{
+    cursor: pointer;
+}

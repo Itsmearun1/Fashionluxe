@@ -1,85 +1,89 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.css";
-
+import { Link } from "react-router-dom";
+import { Footer } from "../Components/Footer";
 const Cart = () => {
-  const [cart, setCart] = useState([
-    { id: 1, name: "Product 1", price: 10, quantity: 2 },
-    { id: 2, name: "Product 2", price: 20, quantity: 3 },
-    { id: 3, name: "Product 3", price: 30, quantity: 1 },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
   const [totalProducts, setTotalProducts] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    calculateTotal();
-  }, [cart]);
-
-  const calculateTotal = () => {
-    const total = cart.reduce((acc, item) => {
-      setTotalProducts(acc.totalProducts + item.quantity);
-      return {
-        totalPrice: acc.totalPrice + item.quantity * item.price,
-        totalProducts: acc.totalProducts + item.quantity,
-      };
-    }, { totalPrice: 0, totalProducts: 0 });
-    setTotalPrice(total.totalPrice);
-  };
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(cartData);
+    setTotalProducts(cartData.length);
+    setTotalPrice(cartData.reduce((acc, item) => acc + item.price, 0));
+  }, []);
 
   const handleRemove = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
+    setTotalProducts(updatedCart.length);
+    setTotalPrice(updatedCart.reduce((acc, item) => acc + item.price, 0));
   };
 
-  const handleQuantityChange = (id, e) => {
-    const updatedCart = cart.map((item) => {
+  const handleQuantityChange = (id, operation) => {
+    const updatedCart = cartItems.map((item) => {
       if (item.id === id) {
-        return { ...item, quantity: e.target.value };
+        if (operation === "add" && item.quantity < 10) {
+          item.quantity++;
+        } else if (operation === "subtract" && item.quantity > 1) {
+          item.quantity--;
+        }
       }
       return item;
     });
-    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
+    setTotalProducts(updatedCart.reduce((acc, item) => acc + item.quantity, 0));
+    setTotalPrice(
+      updatedCart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    );
   };
 
   return (
-    <div className="cart">
-      <h2>Shopping Cart</h2>
-      <table>
-        <thead>
-          <tr>
-          <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>
-                <input
-                  type="number"
-                  value={item.quantity}
-                  onChange={(e) => handleQuantityChange(item.id, e)}
-                />
-              </td>
-              <td>${item.price}</td>
-              <td>${item.quantity * item.price}</td>
-              <td>
-                <button onClick={() => handleRemove(item.id)}>Remove</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="cart-summary">
-        <div>Total Products: {totalProducts}</div>
-        <div>Total Price: ${totalPrice}</div>
-        <button>Checkout</button>
+    <>
+    <h2>Shopping Bag</h2>
+    <div className="cart-page">
+      <div className="cart-items">
+        {cartItems.map((item) => (
+          <div className="cart-item" key={item.id}>
+            <img src={item.img1} alt={item.name} />
+            <div className="item-info">
+              <div className="item-name">{item.name}</div>
+              <div className="item-price">₹{item.price}</div>
+              <div className="item-quantity">
+                <button
+                  onClick={() => handleQuantityChange(item.id, "subtract")}
+                >
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button onClick={() => handleQuantityChange(item.id, "add")}>
+                  +
+                </button>
+              </div>
+              <div
+                className="item-remove"
+                onClick={() => handleRemove(item.id)}
+              >
+                Remove
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="cart-total">
+        <h3>Total Products: {totalProducts}</h3>
+        <h3>Total Price: ₹{totalPrice}</h3>
+        <Link to="/checkout">
+          <button className="checkout-btn">Checkout</button>
+        </Link>
       </div>
     </div>
+    <Footer/>
+    
+    </>
   );
 };
-
 export default Cart;
