@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   margin: 50px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   }
   
   .cart-items {
@@ -12,7 +12,7 @@
   justify-content: left;
   align-items: center;
   width: 80%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   }
   
   .cart-item {
@@ -85,7 +85,7 @@
   justify-content: center;
   align-items: center;
   margin: 50px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   }
   
   .cart-total h3 {

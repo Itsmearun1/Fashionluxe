@@ -7,7 +7,8 @@ import SingleProductPage from "./Pages/Singleproductspage";
 import Cart from "./Pages/Cart";
 import SignIn from "./Pages/Signin";
 import Signup from "./Pages/Signup";
-
+import Checkout from "./Pages/Checkout";
+import AdminDashboard from "./Pages/AdminDasboard";
 function App() {
   return (
     <Router>
@@ -20,6 +21,8 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="/signin/signup" element={<Signup />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/dashboard" element={<AdminDashboard />} />
         </Routes>
       </div>
     </Router>
