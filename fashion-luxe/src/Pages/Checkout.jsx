@@ -1,68 +1,109 @@
-import React, { useState, useEffect } from "react";
-import "./Chekout.css";
-const Payment = () => {
-  const [data, setData] = useState({});
-  const [price, setPrice] = useState("");
-  const payForm = React.createRef();
+import React, { useState } from "react";
+import "./Checkout.css";
+import { useNavigate } from "react-router-dom";
+const Checkout = () => {
+  const navigate=useNavigate();
+  const checkout = JSON.parse(localStorage.getItem("checkout")) || { price: 0, quantity: 0 };
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [cardDetails, setCardDetails] = useState("");
+  const [upi, setUpi] = useState("");
+  const [address, setAddress] = useState("");
 
-  useEffect(() => {
-    const checkoutData = JSON.parse(localStorage.getItem("checkout_data"))[0];
-    setData(checkoutData);
-    setPrice(localStorage.getItem("price"));
-  }, []);
+  const handlePaymentMethodChange = (e) => {
+    setPaymentMethod(e.target.value);
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      payForm.current.cname.value === "" ||
-      payForm.current.cnumber.value === "" ||
-      payForm.current.date.value === "" ||
-      payForm.current.sec.value === ""
-    ) {
-      alert("Please Fill All The Details");
-    } else {
-      alert("Order Placed!!");
-      window.location.replace("index.html");
-    }
+  const handleCardDetailsChange = (e) => {
+    setCardDetails(e.target.value);
+  };
+
+  const handleUpiChange = (e) => {
+    setUpi(e.target.value);
+  };
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleConfirmOrder = () => {
+    alert("Order has been confirmed")
+    navigate("/");
+    console.log({
+      paymentMethod,
+      cardDetails,
+      upi,
+      address,
+      checkout,
+    });
   };
 
   return (
-    <div id="container">
-      <div className="maincontainer">
-        <div className="main">
-          <div className="details">
-            <h2>Total Price $: {price}</h2>
-            <h1>BILLING ADDRESS</h1>
-            <p className="name">{data.name}</p>
-            <p className="address">{data.address}</p>
-            <p className="city">{data.city}</p>
-            <p className="zip">{data.zip}</p>
-            <p className="state">{data.state}</p>
-            <p className="phone">{data.phone}</p>
-          </div>
-          <div className="credit">
-            <h2>Card Details</h2>
-            <form action="" id="form1" ref={payForm} onSubmit={handleSubmit}>
-              <label htmlFor="">Name On Card</label>
-              <input type="text" id="cname" />
-              <label htmlFor="">Number</label>
-              <input type="number" name="" id="cnumber" />
-              <label htmlFor="">Expiration Date</label>
-              <input type="date" id="date" />
-              <label htmlFor="">Security Code</label>
-              <input type="number" name="" id="sec" />
-              <input
-                type="submit"
-                name="Place Order"
-                id="porder"
-                value="Place Order"
-              />
-            </form>
-          </div>
+    <div className="checkout">
+      <h2>Chekout</h2>
+      <div className="checkout-section">
+        <h3>Cart Details</h3>
+        Items In Cart: {checkout.quantity}
+        <br />
+        Total Price: ₹{checkout.price}
+      </div>
+      <div className="checkout-section">
+        <h3>Payment Method</h3>
+        <div>
+          <input
+            type="radio"
+            id="card"
+            name="paymentMethod"
+            value="card"
+            onChange={handlePaymentMethodChange}
+          />
+          <label htmlFor="card">Card</label>
+          {paymentMethod === "card" && (
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Card details"
+              onChange={handleCardDetailsChange}
+            />
+          )}
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="upi"
+            name="paymentMethod"
+            value="upi"
+            onChange={handlePaymentMethodChange}
+          />
+          <label htmlFor="upi">UPI</label>
+          {paymentMethod === "upi" && (
+            <input
+              className="input-field"
+              type="text"
+              placeholder="UPI"
+              onChange={handleUpiChange}
+            />
+          )}
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="cod"
+            name="paymentMethod"
+            value="cod"
+            onChange={handlePaymentMethodChange}
+          />
+          <label htmlFor="cod">Pay on Delivery</label>
         </div>
       </div>
+      <div className="checkout-section">
+        <h3>Shipping Address</h3>
+        <textarea className="input-field" onChange={handleAddressChange} />
+      </div>
+      <button className="confirm-button" onClick={handleConfirmOrder}>
+        Confirm Order
+      </button>
     </div>
   );
 };
 
-export default Payment;
+export default Checkout;
